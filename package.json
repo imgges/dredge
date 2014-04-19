@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/imgges/dredge",
   "dependencies": {
-    "scrapeit": "0.0.2",
     "exec-time": "0.0.2",
     "node-promise": "^0.5.10",
     "async": "^0.7.0",
