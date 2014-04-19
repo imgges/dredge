@@ -1,0 +1,32 @@
+{
+  "name": "imgges-dredge",
+  "version": "0.0.0",
+  "description": "Scraper utility for imgges",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imgges/dredge.git"
+  },
+  "author": "Stephen Tudor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imgges/dredge/issues"
+  },
+  "homepage": "https://github.com/imgges/dredge",
+  "dependencies": {
+    "scrapeit": "0.0.2",
+    "exec-time": "0.0.2",
+    "node-promise": "^0.5.10",
+    "async": "^0.7.0",
+    "request": "^2.34.0",
+    "cheerio": "^0.15.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "should": "^3.3.1",
+    "mocha": "^1.18.2"
+  }
+}
