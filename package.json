@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/imgges/dredge",
   "dependencies": {
-    "node-promise": "^0.5.10",
     "async": "^0.7.0",
     "request": "^2.34.0",
-    "cheerio": "^0.15.0"
+    "cheerio": "^0.15.0",
+    "bluebird": "^1.2.3"
   },
   "private": true,
   "devDependencies": {
