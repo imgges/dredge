@@ -17,10 +17,9 @@
   },
   "homepage": "https://github.com/imgges/dredge",
   "dependencies": {
-    "async": "^0.7.0",
-    "request": "^2.34.0",
     "cheerio": "^0.15.0",
-    "bluebird": "^1.2.3"
+    "bluebird": "^1.2.3",
+    "request-promise": "git://github.com/tyabonil/request-promise"
   },
   "private": true,
   "devDependencies": {
