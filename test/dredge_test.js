@@ -3,7 +3,7 @@ var should = require('should');
 var fs = require('fs');
 var dredge = require('../lib/dredge');
 
-describe('compareItems', function () {
+describe('dredge#compareItems', function () {
     it('should throw error if A and B are undefined', function () {
         dredge.compareItems.should.throw();
     });
@@ -66,7 +66,7 @@ describe('compareItems', function () {
     });
 });
 
-describe('flattenResults', function () {
+describe('dredge#flattenResults', function () {
     it('should throw error if a param is passed of an unexpected type', function () {
         dredge.flattenResults.bind(dredge, 'abc').should.throw();
     });
@@ -79,5 +79,37 @@ describe('flattenResults', function () {
     it('should return a flattened array', function () {
         var flattened = dredge.flattenResults([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
         flattened.should.eql([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    });
+});
+
+describe('dredge#processRequests', function () {
+    var Promise = require('bluebird');
+    var bodies = ['<div><a href="foo.gif">foo</a></div>'];
+    var sites = [{
+        url: 'http://stephentudor.com',
+        selector: 'a[href$=".gif"]'
+    }];
+
+    it('should return an array', function (done) {
+        dredge.processRequests(sites, bodies)
+            .then(function (links) {
+                links[0].should.be.an.Array;
+                links[0].length.should.eql(1);
+                done();
+            })
+    });
+
+    it('should return an array of properly formatted link objects', function (done) {
+        dredge.processRequests(sites, bodies)
+            .then(function (links) {
+                var link = links[0][0];
+                // link.id.should.be.ok;
+                link.url.should.equal('http://cdn.imgg.es/stephentudor.com_foo.gif');
+                link.data.should.be.ok;
+                link.data.domain.should.equal('stephentudor.com');
+                link.data.name.should.equal('foo.gif');
+                link.data.origUrl.should.equal('http://stephentudor.com/foo.gif');
+                done();
+            });
     });
 });
