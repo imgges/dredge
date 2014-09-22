@@ -83,7 +83,7 @@ describe('dredge#flattenResults', function () {
 });
 
 describe('dredge#processRequests', function () {
-    var Promise = require('bluebird');
+    var Promise = require('native-or-bluebird');
     var bodies = ['<div><a href="foo.gif">foo</a></div>'];
     var sites = [{
         url: 'http://stephentudor.com',
